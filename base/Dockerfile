@@ -1,5 +1,5 @@
-FROM ubuntu:wily
-MAINTAINER Roderik van der Veer
+FROM ubuntu:xenial
+MAINTAINER Steve Degosserie "stiiifff@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -10,9 +10,9 @@ RUN apt-get update \
         && apt-get clean \
         && rm -rf /var/lib/apt/lists/* \
         && cd /tmp \
-        && wget http://www.multichain.com/download/multichain-1.0-alpha-18.tar.gz \
-        && tar -xvzf multichain-1.0-alpha-18.tar.gz \
-        && cd multichain-1.0-alpha-18 \
+        && wget http://www.multichain.com/download/multichain-latest.tar.gz \
+        && tar -xvzf multichain-latest.tar.gz \
+        && cd multichain-* \
         && mv multichaind multichain-cli multichain-util /usr/local/bin \
         && cd /tmp \
         && rm -Rf multichain*
