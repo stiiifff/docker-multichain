@@ -1,5 +1,5 @@
-FROM kunstmaan/base-multichain
-MAINTAINER Roderik van der Veer
+FROM stiiifff/multichain-base
+MAINTAINER Steve Degosserie "stiiifff@gmail.com"
 
 ADD ./connect-node.sh /root/connect-node.sh
 

@@ -2,7 +2,7 @@ version: '2'
 
 services:
     masternode:
-        image: kunstmaan/master-multichain
+        image: stiiifff/multichain-master
         build: ./master
         stdin_open: true
         tty: true
@@ -13,7 +13,7 @@ services:
             VIRTUAL_HOST: mulichain-master.docker
             VIRTUAL_PORT: 8000
     explorer:
-        image: kunstmaan/explorer-multichain
+        image: stiiifff/multichain-explorer
         build: ./explorer
         stdin_open: true
         tty: true
@@ -27,7 +27,7 @@ services:
         links:
             - masternode
     slavenode1:
-        image: kunstmaan/node-multichain
+        image: stiiifff/multichain-node
         build: ./node
         stdin_open: true
         tty: true
@@ -36,7 +36,7 @@ services:
         links:
             - masternode
     slavenode2:
-        image: kunstmaan/node-multichain
+        image: stiiifff/multichain-node
         build: ./node
         stdin_open: true
         tty: true
