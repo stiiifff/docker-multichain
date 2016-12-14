@@ -1,9 +1,7 @@
 FROM stiiifff/multichain-base
 MAINTAINER Steve Degosserie "stiiifff@gmail.com"
 
-ADD ./connect-node.sh /root/connect-node.sh
+ADD ./runchain.sh /root/runchain.sh
+RUN chmod a+x /root/runchain.sh
 
-EXPOSE 7447
-EXPOSE 8000
-
-CMD ["/bin/bash", "-x", "/root/connect-node.sh"]
+CMD ["/bin/bash", "/root/runchain.sh"]
