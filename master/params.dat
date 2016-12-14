@@ -1,7 +1,7 @@
 # ==== MultiChain configuration file ====
 
 # Created by multichain-util
-# Protocol version: 10004
+# Protocol version: 10006
 
 # This parameter set is properly GENERATED.
 # To generate network please run "multichaind dockerchain".
@@ -14,6 +14,8 @@
 
 chain-protocol = multichain             # Chain protocol: multichain (permissions, native assets) or bitcoin
 chain-description = MultiChain dockerchain # Chain description, embedded in genesis block coinbase, max 256 chars.
+root-stream-name = root                 # Root stream name, blank means no root stream.
+root-stream-open = true                 # Allow anyone to publish in root stream
 chain-is-testnet = false                # Content of the 'testnet' field of API responses, for compatibility.
 target-block-time = 15                  # Target time between blocks (transaction confirmation delay), seconds. (5 - 86400)
 maximum-block-size = 1000000            # Maximum block size in bytes. (1000 - 1000000000)
@@ -23,6 +25,7 @@ maximum-block-size = 1000000            # Maximum block size in bytes. (1000 - 1
 anyone-can-connect = true              # Anyone can connect, i.e. a publicly readable blockchain.
 anyone-can-send = true                 # Anyone can send, i.e. transaction signing not restricted by address.
 anyone-can-receive = true              # Anyone can receive, i.e. transaction outputs not restricted by address.
+anyone-can-create = true               # Anyone can create new streams.
 anyone-can-issue = true                # Anyone can issue new native assets.
 anyone-can-mine = true                 # Anyone can mine blocks (confirm transactions).
 anyone-can-activate = true             # Anyone can grant or revoke connect, send and receive permissions.
@@ -38,6 +41,7 @@ mining-diversity = 0.3                  # Miners must wait <mining-diversity>*<a
 admin-consensus-admin = 0.5             # <admin-consensus-admin>*<active admins> needed to change admin perms. (0 - 1)
 admin-consensus-activate = 0.5          # <admin-consensus-activate>*<active admins> to change activate perms. (0 - 1)
 admin-consensus-mine = 0.5              # <admin-consensus-mine>*<active admins> to change mining permissions. (0 - 1)
+admin-consensus-create = 0.0            # <admin-consensus-issue>*<active admins> to change create permissions. (0 - 1)
 admin-consensus-issue = 0.0             # <admin-consensus-issue>*<active admins> to change issue permissions. (0 - 1)
 mining-requires-peers = true            # Default for whether nodes only mine blocks if connected to other nodes.
 
@@ -64,6 +68,7 @@ allow-min-difficulty-blocks = false     # Allow lower difficulty blocks if none 
 
 only-accept-std-txs = true              # Only accept and relay transactions which qualify as 'standard'.
 max-std-tx-size = 100000                # Maximum size of standard transactions, in bytes. (1024 - 10000000)
+max-std-op-returns-count = 10           # Maximum number of OP_RETURN metadata outputs in standard transactions. (0 - 1024)
 max-std-op-return-size = 4096           # Maximum size of OP_RETURN metadata in standard transactions, in bytes. (0 - 8388608)
 max-std-op-drops-count = 5              # Maximum number of OP_DROPs per output in standard transactions. (0 - 100)
 max-std-element-size = 600              # Maximum size of data elements in standard transactions, in bytes. (128 - 32768)
@@ -74,7 +79,7 @@ max-std-element-size = 600              # Maximum size of data elements in stand
 default-network-port = 7447             # Default TCP/IP port for peer-to-peer connection with other nodes.
 default-rpc-port = 8000                 # Default TCP/IP port for incoming JSON-RPC API requests.
 chain-name = dockerchain                # Chain name, used as first argument for multichaind and multichain-cli.
-protocol-version = 10004                # Protocol version at the moment of blockchain genesis.
+protocol-version = 10006                # Protocol version at the moment of blockchain genesis.
 network-message-start = faf4e0e9        # Magic value sent as the first 4 bytes of every peer-to-peer message.
 address-pubkeyhash-version = 00bcad3b   # Version bytes used for pay-to-pubkeyhash addresses.
 address-scripthash-version = 05c7cab6   # Version bytes used for pay-to-scripthash addresses.
