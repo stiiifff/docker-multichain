@@ -63,3 +63,23 @@ services:
             - masternode
         depends_on:
             - masternode
+    webdemonode:
+        build: ./webdemo
+        stdin_open: true
+        tty: true
+        expose:
+            - 2850
+        ports:
+            - 2850:80
+        environment:
+            CHAINNAME: MyChain
+            NETWORK_PORT: 7557
+            RPC_PORT: 8002
+            RPC_USER: multichainrpc
+            RPC_PASSWORD: this-is-insecure-change-it
+            RPC_ALLOW_IP: 0.0.0.0/0.0.0.0
+            MASTER_NODE: masternode
+        links:
+            - masternode
+        depends_on:
+            - masternode
